@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0" method="upgrade">
+    <name>Visitor 2 Buyer</name>
+    <author>Nicholas K. Dionysopoulos</author>
+    <creationDate>September 2009</creationDate>
+    <copyright>Copyright (c)2009 Nicholas K. Dionysopoulos. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl.html GNU/GPL v3 or later</license>
+    <authorEmail>nicholas@dionysopoulos.me</authorEmail>
+    <authorUrl>http://www.dionysopoulos.me</authorUrl>
+    <version>1.1</version>
+    <description>
+        <![CDATA[
+		<h1>Visitor 2 Buyer module for Joomla!</h1>
+		<p>"Visitor 2 Buyer" (V2B for short) creates a different user
+        experience for new and returning visitors. It achieves that by displaying
+        a customized message - in any of the presentation modes - to new visitors.
+        It differenciates between new and returning visitors by setting a cookie
+        on their browser, or storing this information in Joomla!'s user profile
+		if the user is registered and logged in the site.<p>
+		<p>V2B is licensed under the GNU General Public License version 3 or, at
+		your option, any later version.</p>
+		<p style="background: yellow; border: thin solid red">
+		<strong>Important</strong> You <em>must</em> disable the &quote;System - Cache&quote;
+		plug-in for V2B to work as expected!</p>
+		]]>
+    </description>
+    
+    <files>
+        <filename module="mod_v2b">mod_v2b.php</filename>
+	<filename>index.html</filename>
+	<folder>elements</folder>
+	<folder>helpers</folder>
+	<folder>tmpl</folder>
+    </files>
+    
+    <media destination="v2b">
+		<filename>js/jquery-1.3.2.min.js</filename>
+		<filename>js/jquery-catfish.js</filename>
+		<filename>js/catfish.css</filename>
+		<filename>js/gradbg.gif</filename>
+		<filename>js/jquery.simplemodal.js</filename>
+		<filename>js/jquery.timers.js</filename>
+		<filename>js/modal.css</filename>
+		<filename>js/x.png</filename>
+    </media>
+    
+    <languages folder="lang">
+	<language tag="en-GB">en-GB.mod_v2b.ini</language>
+    </languages>
+    
+    <params addpath="/modules/mod_v2b/elements">
+    	<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="cache" type="list" default="0" label="Caching" description="Select whether to cache the content of this module">
+			<option value="0">Never</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+        <param name="message" type="richtext"
+		default="Welcome to our site! Please subscribe to our &lt;a href=&quot;[SITE]/index.php?format=feed&amp;type=rss&quot;&gt;RSS feed&lt;/a&gt;."
+		description="VM_CUSTOM_MESSAGE_TIP" label="VM_CUSTOM_MESSAGE_LBL" />
+		<param name="newvisits" type="text" default="3" label="VM_NEWUSER_LBL" description="VM_NEWUSER_TIP" />
+		<param name="uniqueid" type="text" size="10" default="" label="VM_UNIQUE_ID_LBL" description="VM_UNIQUE_ID_TIP" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+    	<param name="layout" type="list" label="VM_DISPLAY_MODE_LBL"
+			description="VM_DISPLAY_MODE_TIP"
+			default="default">
+			<option value="default">VM_DMOPT_DEFAULT</option>
+			<option value="yellow-box">VM_DMOPT_YELLOW</option>
+			<option value="modal">VM_DMOPT_MODAL</option>
+			<option value="catfish">VM_DMOPT_CATFISH</option>
+		</param>
+    </params>
+    <params group="advanced" addpath="/modules/mod_v2b/elements">
+    	<param name="cookieexpiration" type="text" size="5" default="90" label="VM_COOKIE_EXPIRATION_LBL" description="VM_COOKIE_EXPIRATION_TIP" />
+		<param name="maxpagepersession" type="text" size="5" default="" label="VM_MAXPAGEPERSESSION_LBL" description="VM_MAXPAGEPERSESSION_TIP" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="mingroup" type="jgroup" default="0" label="VM_MINUSERGROUP_LBL" description="VM_MINUSERGROUP_TIP" />
+		<param name="maxgroup" type="jgroup" default="2" label="VM_MAXUSERGROUP_LBL" description="VM_MAXUSERGROUP_LBL" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="jquerysource" type="list"
+			label="VM_JQUERYSRC_LBL"
+			description="VM_JQUERYSRC_TIP"
+			default="local">
+			<option value="google">VM_OPT_JQUERYSRC_GOOGLE</option>
+			<option value="local">VM_OPT_JQUERYSRC_LOCAL</option>
+			<option value="none">VM_OPT_JQUERYSRC_NONE</option>
+		</param>		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="modaltimeout" type="text" default="5" label="VM_MODAL_TIMEOUT_LBL" description="VM_MODAL_TIMEOUT_TIP" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="catfishanimation" type="list"
+			label="VM_CATFISH_ANIMATION_LBL"
+			description="VM_CATFISH_ANIMATION_TIP"
+			default="slide">
+			<option value="slide">VM_OPT_CATFISH_ANIMATION_SLIDE</option>
+			<option value="fade">VM_OPT_CATFISH_ANIMATION_FADE</option>
+			<option value="none">VM_OPT_CATFISH_ANIMATION_NONE</option>
+		</param>
+		<param name="catfishheight" type="text" size="5" default="100" label="VM_CATFISH_HEIGHT_LBL" description="VM_CATFISH_HEIGHT_TIP" />
+		<param name="catfishtimeout" type="text" size="5" default="10" label="VM_CATFISH_TIMEOUT_LBL" description="VM_CATFISH_TIMEOUT_TIP" />
+		<param name="catfishclass" type="text" size="10" default="" label="VM_CATFISH_CLASS_LBL" description="VM_CATFISH_CLASS_TIP" />
+    </params>
+</install>

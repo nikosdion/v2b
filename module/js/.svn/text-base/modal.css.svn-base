@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#modal-overlay {background-color:#000;}
+
+#modal-container { width:450px; background-color:#ffffff; border:3px solid #ccc; }
+#modal-container a.modalCloseImg {background:url(x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-18px; cursor:pointer;}
+#modal-container .modal-top {height:13px; background:url("form_top.gif") no-repeat; padding:0; margin:0;}
+#modal-container .modal-bottom {height:13px; background:url("form_bottom.gif") no-repeat; font-size:.7em; text-align:center;}
+#modal-container .contact-content {background-color:#333; color:#ddd; height:40px;}
+
+#modal-container #vmtmodal { padding: 1em; }
